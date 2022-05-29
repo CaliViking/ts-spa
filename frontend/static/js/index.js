@@ -2,6 +2,7 @@ import Dashboard from './views/Dashboard.js';
 import Posts from './views/Posts.js';
 import PostView from './views/PostView.js';
 import Settings from './views/Settings.js';
+import Highcharts from './views/Highcharts.js';
 
 const pathToRegex = (path) =>
   new RegExp('^' + path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)') + '$');
@@ -30,6 +31,7 @@ const router = async () => {
     { path: '/posts', view: Posts },
     { path: '/posts/:id', view: PostView },
     { path: '/settings', view: Settings },
+    { path: '/highcharts', view: Highcharts },
   ];
 
   //   Test routes for match
@@ -41,6 +43,7 @@ const router = async () => {
   });
 
   console.log(location.pathname);
+  //   console.log(TimeSeriesPath);
 
   let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
 
@@ -56,6 +59,7 @@ const router = async () => {
   const view = new match.route.view(getParams(match));
 
   document.querySelector('#app').innerHTML = await view.getHtml();
+  view.runScript();
 };
 
 window.addEventListener('popstate', router);
