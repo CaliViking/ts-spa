@@ -1,14 +1,14 @@
 {
   "name": "ts-spa",
+  "author": "Niels Andersen",
+  "description": "A library for managing and processing time series data.",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "CC-BY-NC-4.0",
   "dependencies": {
     "express": "^4.18.1",
     "highcharts": "^10.1.0",
