@@ -4,9 +4,11 @@
 
 const express = require('express');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 
+app.use(compression());
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')));
 app.use('/node_modules', express.static(path.resolve(__dirname, 'node_modules')));
 
